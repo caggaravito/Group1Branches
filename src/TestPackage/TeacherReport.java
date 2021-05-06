@@ -43,8 +43,8 @@ public class TeacherReport {
 		int highest;
 		String nameHigh="";
 		int lowest;
-		String nameLow;
-		int tempLow; 
+		String nameLow="";
+		
 				
 		int aStudent = 0;  //Variable to count the number of students that got A
 		int bStudent = 0;  //Variable to count the number of students that got B
@@ -52,6 +52,8 @@ public class TeacherReport {
 		int fStudent = 0;  //Variable to count the number of students that got F
 		
 		highest = Students[0].score;
+		lowest = Students[0].score;
+		
 		
 		for (DataSet Student: Students) {
 				sum +=Student.score;  //to calculate average of Scores
@@ -61,9 +63,13 @@ public class TeacherReport {
 			 highest = Student.score;
 			 nameHigh = Student.name;
 		 }
-			
-			
-		//Loop to know how the grade of the students and how many per grade.	
+			//to calculate Lowest Score	
+		 if (Student.score <lowest) {
+			lowest = Student.score;
+			nameLow = Student.name;
+		 }	 
+		 
+		//To know how the grade of the students and how many per grade.	
 			if(Student.score >= 90) {
 				aStudent++;
 			}
@@ -80,14 +86,22 @@ public class TeacherReport {
 			}
 		}
 		
-		System.out.println("The Average of the class is : "+sum/l); //average of scores
-		System.out.println();
+		//First Question
 		System.out.println("Highest Score " +highest + " belongs to : "+nameHigh);
 		System.out.println();
-		
+		//Second Question
+		System.out.println("Lowest Score " +lowest + " belongs to : "+ nameLow);
+		System.out.println();
+		//Third Question
+		System.out.println("The Average of the class is : "+sum/l); //average of scores
+		System.out.println();
+		//Fourth Question
 		System.out.println("Students with A Score: " +aStudent);
+		//Fifth Question
 		System.out.println("Students with B Score: " +bStudent);
+		//Sixth Question 
 		System.out.println("Students with C Score: " +cStudent);
+		//Seventh Question
 		System.out.println("Students that failed: " +fStudent);
 	}
 	
